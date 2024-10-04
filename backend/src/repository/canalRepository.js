@@ -31,14 +31,14 @@ export async function alterarCanal(conal,id) {
   const comando = `
 
   update tb_canal
-  set canal = ?,
-      numero = ?,
-      aberto = ?
+  set nm_canal = ?,
+      nr_canal = ?,
+      bt_aberto = ?
   where id_canal = ?;
   `
 
   let resposta = await con.query(comando, [conal.canal, conal.numero, conal.aberto, id])
-  let info = resposta[0];
+  let registros = resposta[0];
   
   let linhasAfetadas = registros.affectedRows
   
